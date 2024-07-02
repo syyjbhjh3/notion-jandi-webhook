@@ -4,13 +4,13 @@
 > 
 > 명지전문대학 Internship 운영을 위해 제작했습니다.
 >>동작 과정  
->> 1. API는 60초마다 연동된 Notion DataBase에 접근한다.
+>> 1. API는 60초마다 연동된 Notion DataBase에 접근합니다.
 >>```
 >> Notion 개발자 페이지에서 통합 API Key가 필요합니다.
 >> 생성된 API Key를 Notion Workspace에 Connection 해줘야 합니다.
 >> Notion Database의 ID가 필요합니다. 
 >>```
->> 2. Database의 생성일시(Create DateTime)를 기준으로 마지막으로 비교했던 시간(lastCheckedTime)과 비교한다.
+>> 2. Database의 생성일시(Create DateTime)를 마지막으로 비교했던 시간(lastCheckedTime)과 비교합니다.
 >>```
 >> Notion Database에서 제공하는 Create Date는 분단위까지 입니다. (초단위는 00으로 고정)
 >>```
@@ -20,7 +20,7 @@
 >>```
 ---
 ## Notion API Key 발급 및 Connection
-#### - [Notion 개발자 페이지](https://www.notion.so/profile/integrations)  
+#### [Notion 개발자 페이지](https://www.notion.so/profile/integrations)  
 ### 1. 새 API 통합 생성
 - API 통합을 생성하여 Key를 발급받습니다.
 ![1](src/main/resources/img/new-api.png)
@@ -36,7 +36,7 @@
 ### 4. Notion DataBase ID 확인하기
 - DataBase View를 통해 Page로 들어가고 링크를 복사했을때 Notion URL 뒤와 QueryString 까지가 Database의 ID입니다    
   ![3](src/main/resources/img/Notion-databaseID.png)
-- 
+
 ---
 ## Jandi 수신 Webhook URL 발급
 ### 1. Jandi Connector Webhook 수신 연동 추가
