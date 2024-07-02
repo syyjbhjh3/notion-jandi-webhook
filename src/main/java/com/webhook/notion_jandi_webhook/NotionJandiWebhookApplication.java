@@ -18,11 +18,14 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class NotionJandiWebhookApplication {
+	// Notio 통합 API Secret Key
 	private static final String NOTION_API_KEY = "";
+	// Notion Database ID
 	private static final String DATABASE_ID = "";
+	// Jandi 수신 Webhook URL
 	private static final String JANDI_WEBHOOK_URL = "";
 	private static Instant lastCheckedTime = Instant.now();
-
+	https://www.notion.so/syyjbhjh7/68f96425e0ba4d868836f919aea1c715?v=e915aebc7abb413ab17fc24da2f47c1f&pvs=4
 	public static void main(String[] args) {
 		Timer timer = new Timer();
 		timer.schedule(new TimerTask() {
@@ -45,7 +48,9 @@ public class NotionJandiWebhookApplication {
 		for (int i = 0; i < results.length(); i++) {
 			JSONObject item = results.getJSONObject(i);
 			Instant createdTime = Instant.parse(item.getString("created_time"));
+			// 현재 시간과 Database Create DateTime을 비교
 			if (createdTime.isAfter(lastCheckedTime) || createdTime.equals(lastCheckedTime)) {
+				// Jandi로 전송할 요소들에 대하여 Format 수정
 				String title = item.getJSONObject("properties").getJSONObject("Title").getJSONArray("title").getJSONObject(0).getString("plain_text");
 				String tag = item.getJSONObject("properties").getJSONObject("Tag").getJSONArray("multi_select").getJSONObject(0).getString("name");
 				String content = item.getJSONObject("properties").getJSONObject("Content").getJSONArray("rich_text").getJSONObject(0).getString("plain_text");
@@ -61,10 +66,10 @@ public class NotionJandiWebhookApplication {
 		// Instant 객체를 ISO 8601 형식 문자열로 포맷
 		String formattedDateTime = DateTimeFormatter.ISO_INSTANT.format(truncatedNow);
 		lastCheckedTime = Instant.parse(formattedDateTime);
-		System.out.println(lastCheckedTime);
 	}
 
 	private static String getNotionDatabaseItems() throws Exception {
+		// Notion Database Call
 		CloseableHttpClient httpClient = HttpClients.createDefault();
 		HttpPost request = new HttpPost("https://api.notion.com/v1/databases/" + DATABASE_ID + "/query");
 		request.addHeader("Authorization", "Bearer " + NOTION_API_KEY);
