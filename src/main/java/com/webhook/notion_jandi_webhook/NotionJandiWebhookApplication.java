@@ -25,7 +25,7 @@ public class NotionJandiWebhookApplication {
 	// Jandi 수신 Webhook URL
 	private static final String JANDI_WEBHOOK_URL = "";
 	private static Instant lastCheckedTime = Instant.now();
-	https://www.notion.so/syyjbhjh7/68f96425e0ba4d868836f919aea1c715?v=e915aebc7abb413ab17fc24da2f47c1f&pvs=4
+
 	public static void main(String[] args) {
 		Timer timer = new Timer();
 		timer.schedule(new TimerTask() {
