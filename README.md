@@ -48,3 +48,6 @@
 ![2](src/main/resources/img/webhook-url.png)
 
 ---
+## 작업예정 사항
+### 1. Key값, ID, URL ConfigMap화
+### 2. 간단한 Helm Chart로 구동할 수 있게끔 Helm Chart 작성
